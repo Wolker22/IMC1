@@ -1,10 +1,32 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         
-
+        {
+            "name": "C++ Debugging",
+            "type": "cppdbg",  // Tipo de depurador (C++ con GDB)
+            "request": "launch",  // Tipo de solicitud (lanzar una nueva sesión)
+            "program": "${fileDirname}/${fileBasenameNoExtension}",  // Ejecutable a depurar
+            "args": [],  // Argumentos adicionales para el programa (vacío por ahora)
+            "stopAtEntry": false,  // No detenerse al inicio
+            "cwd": "${fileDirname}",  // Directorio de trabajo donde está el archivo
+            "environment": [],  // Variables de entorno (vacío por ahora)
+            "externalConsole": false,  // No usar consola externa
+            "MIMode": "gdb",  // Usar GDB como depurador
+            "miDebuggerPath": "/usr/bin/gdb",  // Ruta a GDB
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",  // Habilitar impresión bonita en GDB
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: g++ build active file",  // Ejecutar la tarea de compilación antes de depurar
+            "miDebuggerArgs": "",  // Argumentos adicionales para GDB (vacío por ahora)
+            "logging": {
+                "moduleLoad": false
+            },
+            "visualizerFile": "${workspaceFolder}/.vscode/cpp_vs.xml"  // Configuración opcional para visualizadores
+        }
     ]
 }
