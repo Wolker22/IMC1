@@ -199,10 +199,36 @@ double *util::maxDatasetInputs(Dataset *dataset)
 // Get the minimum value of the dataset outputs
 double util::minDatasetOutputs(Dataset *dataset)
 {
+    double *ret = new double[dataset->nOfInputs];
+    ret = minDatasetInputs(dataset);
+    double min = ret[0];
+    for (int i = 0; i < dataset->nOfInputs; i++)
+    {
+
+        if (ret[i]<min)
+        {
+            min=ret[i];
+        }
+    }
+    return min;
 }
 
 // ------------------------------
 // Get the maximum value of the dataset outputs
 double util::maxDatasetOutputs(Dataset *dataset)
 {
+
+    double *ret = new double[dataset->nOfInputs];
+    ret = maxDatasetInputs(dataset);
+    double max = ret[0];
+    for (int i = 0; i < dataset->nOfInputs; i++)
+    {
+
+        if (ret[i]>max)
+        {
+            max=ret[i];
+        }
+    }
+    return max;
+
 }
